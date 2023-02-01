@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    第一种：引入外部Bean
+        1. 创建两个类对象
+        2. 在employee的bean标签中，引入department的属性
+    -->
+    <bean id="department" class="net.ferrum121308.spring6.lesson2.entity.test2.Department">
+        <property name="name" value="安保部门" />
+    </bean>
+    <bean id="employee" class="net.ferrum121308.spring6.lesson2.entity.test2.Employee">
+        <property name="name" value="金伟" />
+        <property name="age" value="45" />
+        <property name="department" ref="department" />
+    </bean>
+
+    <!--
+    第二种：引入内部Bean
+    -->
+    <bean id="employee2" class="net.ferrum121308.spring6.lesson2.entity.test2.Employee">
+        <property name="name" value="万杰" />
+        <property name="age" value="28" />
+        <property name="department">
+            <bean id="department2" class="net.ferrum121308.spring6.lesson2.entity.test2.Department">
+                <property name="name" value="研发部门" />
+            </bean>
+        </property>
+    </bean>
+
+    <!--
+    第三种：级联赋值
+    -->
+    <bean id="department3" class="net.ferrum121308.spring6.lesson2.entity.test2.Department">
+        <property name="name" value="运维部" />
+    </bean>
+    <bean id="employee3" class="net.ferrum121308.spring6.lesson2.entity.test2.Employee">
+        <property name="name" value="熊芳" />
+        <property name="age" value="26" />
+        <property name="department" ref="department3" />
+        <property name="department.name" value="管理部" />
+    </bean>
+</beans>

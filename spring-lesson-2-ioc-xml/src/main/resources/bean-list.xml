@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="department" class="net.ferrum121308.spring6.lesson2.entity.test2.Department">
+        <property name="name" value="技术部" />
+        <property name="employees">
+            <list>
+                <ref bean="employee1" />
+                <ref bean="employee2" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="employee1" class="net.ferrum121308.spring6.lesson2.entity.test2.Employee">
+        <property name="name" value="高清妍" />
+        <property name="age" value="25" />
+    </bean>
+    <bean id="employee2" class="net.ferrum121308.spring6.lesson2.entity.test2.Employee">
+        <property name="name" value="史敏" />
+        <property name="age" value="36" />
+    </bean>
+
+
+
+</beans>

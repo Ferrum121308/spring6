@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Setter方式注入 -->
+    <bean id="book" class="net.ferrum121308.spring6.lesson2.entity.test1.Book">
+        <property name="name" value="Vue开发" />
+        <property name="author" value="尤雨溪" />
+
+        <!-- 特殊值处理：-->
+        <!-- 1.空值 -->
+        <!--
+        <property name="other">
+            <null />
+        </property>
+        -->
+        <!-- 2.XML实体替代 -->
+        <!--
+        <property name="other" value="a &lt; b" />
+        -->
+        <!-- 3.CData -->
+        <property name="other">
+            <value><![CDATA[a < b]]></value>
+        </property>
+    </bean>
+
+    <!-- 构造器方式注入 -->
+    <bean id="book2" class="net.ferrum121308.spring6.lesson2.entity.test1.Book">
+        <constructor-arg name="name" value="Java开发" />
+        <constructor-arg name="author" value="test2" />
+        <constructor-arg name="other" value="test" />
+    </bean>
+
+</beans>

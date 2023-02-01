@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <bean id="lesson1" class="net.ferrum121308.spring6.lesson2.entity.test3.Lesson">
+        <property name="lessonName" value="计算机组成原理"/>
+    </bean>
+
+    <bean id="lesson2" class="net.ferrum121308.spring6.lesson2.entity.test3.Lesson">
+        <property name="lessonName" value="操作系统"/>
+    </bean>
+
+    <bean id="lesson3" class="net.ferrum121308.spring6.lesson2.entity.test3.Lesson">
+        <property name="lessonName" value="计算机网络"/>
+    </bean>
+
+    <bean id="teacher1" class="net.ferrum121308.spring6.lesson2.entity.test3.Teacher">
+        <property name="teacherId" value="0010"/>
+        <property name="name" value="程熙涵"/>
+    </bean>
+
+    <bean id="teacher2" class="net.ferrum121308.spring6.lesson2.entity.test3.Teacher">
+        <property name="teacherId" value="0011"/>
+        <property name="name" value="袁美欣"/>
+    </bean>
+
+    <bean id="student" class="net.ferrum121308.spring6.lesson2.entity.test3.Student">
+        <property name="studentId" value="001"/>
+        <property name="name" value="卢晨涛"/>
+        <property name="lessons" ref="lessons"/>
+        <property name="teacherMap" ref="teachers"/>
+    </bean>
+
+    <util:list id="lessons">
+        <ref bean="lesson1"/>
+        <ref bean="lesson2"/>
+        <ref bean="lesson3"/>
+    </util:list>
+
+    <util:map id="teachers">
+        <entry>
+            <key>
+                <value>teacher1</value>
+            </key>
+            <ref bean="teacher1"/>
+        </entry>
+        <entry>
+            <key>
+                <value>teacher2</value>
+            </key>
+            <ref bean="teacher2"/>
+        </entry>
+    </util:map>
+
+</beans>
